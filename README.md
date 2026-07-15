@@ -6,11 +6,13 @@
 
 ![Compiler](https://img.shields.io/badge/VScode_Plugin-Done-darkgreen)</br>
 ![License](https://img.shields.io/badge/License-Apache_2.0-darkblue)
-![Platform](https://img.shields.io/badge/Current_Platform-VSCode_/_Codium)
+![Platform](https://img.shields.io/badge/Current_Platform-VSCode_/_Codium-yellow)
 
 </div>
 
 A complete Visual Studio Code extension that brings first-class support for the **Velox** programming language.
+
+> For Velox project, see [here](https://github.com/TheProgrammare/Velox)
 
 ## Features
 
