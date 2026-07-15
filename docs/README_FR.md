@@ -2,15 +2,17 @@
 
 🇫🇷 ![Français](docs/README_FR.md)
 
-![Velox logo title](icons/logo-title.svg)
+![Velox logo title](/icons/logo-title.svg)
 
 ![Compiler](https://img.shields.io/badge/VScode_Plugin-Done-darkgreen)</br>
 ![License](https://img.shields.io/badge/License-Apache_2.0-darkblue)
-![Platform](https://img.shields.io/badge/Current_Platform-VSCode_/_Codium)
+![Platform](https://img.shields.io/badge/Current_Platform-VSCode_/_Codium-yellow)
 
 </div>
 
 Une extension complète pour intégrer le langage de programmation **Velox** dans Visual Studio Code.
+
+> Pour le projet Velox, aller [ici](https://github.com/TheProgrammare/Velox)
 
 ## Fonctionnalités
 
