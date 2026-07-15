@@ -1,6 +1,6 @@
 <div align = "center">
 
-🇫🇷 ![Français](docs/README_FR.md)
+🇬🇧🇺🇸 ![English](/README.md)
 
 ![Velox logo title](/icons/logo-title.svg)
 
