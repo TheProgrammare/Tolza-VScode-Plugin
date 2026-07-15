@@ -1,10 +1,11 @@
 {
   "name": "velox-vscode-plugin",
   "displayName": "Velox VS Code plugin",
-  "description": "Plugin helps coding in Velox programming language!",
+  "description": "The official Velox programming language plugin !",
   "author": "Programmare",
   "publisher": "",
   "version": "1.0.0",
+  "repository": "https://github.com/TheProgrammare/Velox-VScode-Plugin",
   "icon": "icons/velox-logo.png",
   "engines": {
     "vscode": "^1.125.0"

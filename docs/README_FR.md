@@ -2,7 +2,7 @@
 
 🇬🇧🇺🇸 ![English](/README.md)
 
-![Velox logo title](/icons/logo-title.svg)
+![Velox logo title](/icons/logo-title.png)
 
 ![Compiler](https://img.shields.io/badge/VScode_Plugin-Done-darkgreen)</br>
 ![License](https://img.shields.io/badge/License-Apache_2.0-darkblue)
