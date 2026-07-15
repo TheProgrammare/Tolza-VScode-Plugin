@@ -1,5 +1,5 @@
 import * as vscode from "vscode";
-import { veloxState } from "./state";
+import { veloxParameters, veloxState } from "./state";
 import { execFile } from "child_process";
 import { parseDiagnostics } from "./diagnostics";
 
@@ -10,100 +10,50 @@ let checkGeneration = 0;
 let checkRunning = false;
 let checkPending = false;
 
-export function scheduleCheck(
-    delay: number
-) {
+export function scheduleCheck(delay: number) {
+  if (checkTimer) {
+    clearTimeout(checkTimer);
+  }
 
-    if (checkTimer) {
-        clearTimeout(checkTimer);
-    }
-
-
-    checkTimer =
-        setTimeout(
-            () => {
-
-                runCheck();
-
-            },
-            delay
-        );
+  checkTimer = setTimeout(() => runCheck(), delay);
 }
 
 export async function runCheck() {
+  if (!veloxState.config) {
+    return;
+  }
 
-    if (!veloxState.config) {
+  if (checkRunning) {
+    checkPending = true;
+
+    return;
+  }
+
+  checkRunning = true;
+
+  await vscode.workspace.saveAll();
+
+  const generation = ++checkGeneration;
+
+  execFile(
+    veloxParameters.path_compiler,
+    ["check", veloxState.config, veloxParameters.command_check_args],
+    async (_error, stdout, stderr) => {
+      if (generation !== checkGeneration) {
+        checkRunning = false;
+
         return;
-    }
+      }
 
+      await parseDiagnostics(stdout + stderr);
 
-    if (checkRunning) {
+      checkRunning = false;
 
-        checkPending = true;
+      if (checkPending) {
+        checkPending = false;
 
-        return;
-    }
-
-
-    checkRunning = true;
-
-
-    /*
-     * Synchronise le disque avec le buffer VS Code
-     */
-    await vscode.workspace.saveAll();
-
-
-
-    const generation =
-        ++checkGeneration;
-
-
-
-    execFile(
-        "velox-compiler",
-        [
-            "check",
-            veloxState.config,
-            "--diagnostic-format",
-            "json"
-        ],
-        async (
-            _error,
-            stdout,
-            stderr
-        ) => {
-
-
-            if (
-                generation !== checkGeneration
-            ) {
-
-                checkRunning = false;
-
-                return;
-            }
-
-
-
-            await parseDiagnostics(
-                stdout + stderr
-            );
-
-
-
-            checkRunning = false;
-
-
-
-            if (checkPending) {
-
-                checkPending = false;
-
-                runCheck();
-
-            }
-
-        }
-    );
+        runCheck();
+      }
+    },
+  );
 }

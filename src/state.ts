@@ -1,15 +1,21 @@
 export const veloxState = {
+  config: undefined as string | undefined,
 
-    config: undefined as string | undefined,
+  executable: undefined as string | undefined,
 
-    compilerPath: "velox-compiler",
+  buildMode: undefined as string | undefined,
 
-    executable: undefined as string | undefined,
+  checkRunning: false,
 
-    buildMode: undefined as string | undefined,
+  generation: 0,
+};
 
-    checkRunning: false,
+export const veloxParameters = {
+  path_toolchain: "" as string,
 
-    generation: 0
+  path_compiler: "" as string,
 
+  command_check_args: "" as string,
+
+  command_build_args: "" as string,
 };

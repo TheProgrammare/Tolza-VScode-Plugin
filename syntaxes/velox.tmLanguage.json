@@ -189,6 +189,9 @@
           "include": "#variable_declaration"
         },
         {
+          "include": "#variable_declaration_constant"
+        },
+        {
           "include": "#asm_declaration"
         },
         {
@@ -502,7 +505,7 @@
           "name": "keyword.declaration.pass-mode.velox"
         },
         "2": {
-          "name": "variable.parameter.name.velox"
+          "name": "variable.parameter.velox"
         }
       },
       "end": "(?=\\s*[),])",
@@ -547,16 +550,25 @@
     },
     "variable_declaration": {
       "name": "meta.variable.velox",
-      "match": "\\b(var|let|const|mut|ref)\\b\\s+([a-zA-Z_][a-zA-Z0-9_]*)\\b",
+      "match": "\\b(var|mut)\\b\\s+([a-zA-Z_][a-zA-Z0-9_]*)\\b",
       "captures": {
         "1": {
           "name": "keyword.declaration.variable.velox"
         },
         "2": {
-          "name": "entity.name.variable.velox"
+          "name": "variable.other.readwrite.velox"
+        }
+      }
+    },
+    "variable_declaration_constant": {
+      "name": "meta.variable.velox",
+      "match": "\\b(let|const|ref)\\b\\s+([a-zA-Z_][a-zA-Z0-9_]*)\\b",
+      "captures": {
+        "1": {
+          "name": "keyword.declaration.variable.velox"
         },
-        "3": {
-          "name": "keyword.operator.colon.velox"
+        "2": {
+          "name": "variable.other.constant.velox"
         }
       }
     },
@@ -762,7 +774,7 @@
           "include": "#function_call"
         },
         {
-          "include": "#system_call"
+          "include": "#rule_call"
         },
         {
           "include": "#types"
@@ -817,15 +829,15 @@
         }
       ]
     },
-    "system_call": {
-      "name": "meta.call.system.velox",
-      "match": "\\b([A-Za-z_][A-Za-z0-9_]*)\\s*\\:\\:\\>\\s*([A-Za-z_][A-Za-z0-9_]*)\\s*\\(",
+    "rule_call": {
+      "name": "meta.call.rule.velox",
+      "match": "\\b([A-Za-z_][A-Za-z0-9_]*)\\s*-\\>\\s*([A-Za-z_][A-Za-z0-9_]*)\\s*\\(",
       "captures": {
         "1": {
-          "name": "entity.name.entity.velox"
+          "name": "entity.name.form.velox"
         },
         "2": {
-          "name": "entity.name.system.velox"
+          "name": "entity.name.rule.velox"
         }
       }
     },
@@ -1181,7 +1193,7 @@
       "patterns": [
         {
           "name": "constant.character.escape.velox",
-          "match": "\\\\(?:u\\{[0-9A-Fa-f]{1,6}\\}|u[0-9A-Fa-f]{4}|x[0-9A-Fa-f]{2}|0|[\\\\\"{}nrtbfv])"
+          "match": "\\(?:u\\{[0-9A-Fa-f]{1,6}\\}|u[0-9A-Fa-f]{4}|x[0-9A-Fa-f]{2}|0|[\"{}nrtbfv])"
         },
         {
           "include": "#string_interpolation"

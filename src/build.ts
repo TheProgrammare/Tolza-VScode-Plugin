@@ -1,119 +1,60 @@
 import * as vscode from "vscode";
 import { execFile } from "child_process";
-import { veloxState } from "./state";
+import { veloxParameters, veloxState } from "./state";
 import { parseDiagnostics } from "./diagnostics";
 
-
 export async function runBuild() {
+  if (!veloxState.config) {
+    vscode.window.showErrorMessage("No velox.toml found");
 
-    if (!veloxState.config) {
+    return false;
+  }
 
-        vscode.window.showErrorMessage(
-            "No velox.toml found"
-        );
+  let configFile = veloxState.config.toString();
 
-        return false;
-    }
+  return new Promise<boolean>((resolve) => {
+    execFile(
+      veloxParameters.path_compiler,
+      ["build", configFile, veloxParameters.command_build_args],
+      async (error, stdout, stderr) => {
+        await parseDiagnostics(stdout + stderr);
 
-    let configFile = veloxState.config.toString();
+        if (error) {
+          resolve(false);
 
-
-    return new Promise<boolean>(
-        resolve => {
-
-
-            execFile(
-                "velox-compiler",
-                [
-                    "build",
-                    configFile,
-                    "--diagnostic-format",
-                    "json"
-                ],
-                async (
-                    error,
-                    stdout,
-                    stderr
-                ) => {
-
-
-                    await parseDiagnostics(
-                        stdout + stderr
-                    );
-
-
-
-                    if (error) {
-
-                        resolve(false);
-
-                        return;
-                    }
-
-
-
-                    resolve(true);
-
-                }
-            );
-
-
+          return;
         }
-    );
 
+        resolve(true);
+      },
+    );
+  });
 }
 
-function parseBuildResult(
-    output: string
-): boolean {
+function parseBuildResult(output: string): boolean {
+  const begin = "@@VELOX_EXORDIUM_RESULTATI@@";
 
+  const end = "@@VELOX_EXORDIUM_RESULTATI@@";
 
-    const begin =
-        "@@VELOX_EXORDIUM_RESULTATI@@";
+  const start = output.indexOf(begin);
 
-    const end =
-        "@@VELOX_EXORDIUM_RESULTATI@@";
+  const finish = output.indexOf(end);
 
+  if (start === -1 || finish === -1) {
+    return false;
+  }
 
-    const start =
-        output.indexOf(begin);
+  const json = output.substring(start + begin.length, finish).trim();
 
-    const finish =
-        output.indexOf(end);
+  const result = JSON.parse(json);
 
+  if (!result.success) {
+    return false;
+  }
 
-    if (
-        start === -1 ||
-        finish === -1
-    ) {
-        return false;
-    }
+  veloxState.executable = result.executable;
 
+  veloxState.buildMode = result.mode;
 
-    const json =
-        output.substring(
-            start + begin.length,
-            finish
-        )
-        .trim();
-
-
-    const result =
-        JSON.parse(json);
-
-
-    if (!result.success) {
-        return false;
-    }
-
-
-    veloxState.executable =
-        result.executable;
-
-
-    veloxState.buildMode =
-        result.mode;
-
-
-    return true;
+  return true;
 }

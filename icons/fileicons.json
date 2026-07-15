@@ -1,0 +1,10 @@
+{
+    "iconDefinitions": {
+        "_file_vlx": {
+            "iconPath": "./vlx.svg"
+        }
+    },
+    "fileExtensions": {
+        "vlx": "_file_vlx"
+    }
+}
