@@ -8,7 +8,7 @@
    version="1.1"
    id="svg1"
    inkscape:version="1.4 (e7c3feb100, 2024-10-09)"
-   sodipodi:docname="vlx.svg"
+   sodipodi:docname="tlz.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -23,9 +23,9 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#505050"
      inkscape:document-units="mm"
-     inkscape:zoom="0.52284039"
-     inkscape:cx="153.96668"
-     inkscape:cy="525.97314"
+     inkscape:zoom="0.73940797"
+     inkscape:cx="294.15425"
+     inkscape:cy="421.95921"
      inkscape:window-width="1920"
      inkscape:window-height="1009"
      inkscape:window-x="0"
@@ -40,14 +40,14 @@
      id="layer1">
     <text
        xml:space="preserve"
-       style="font-size:123.512px;line-height:0.8;font-family:Cousine;-inkscape-font-specification:'Cousine, Normal';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#ff8100;fill-rule:evenodd;stroke-width:3.9708;stroke-linecap:round;stroke-linejoin:round;stroke-dashoffset:23.811;paint-order:fill markers stroke"
-       x="-0.19829999"
-       y="103.89407"
+       style="font-size:93.0906px;line-height:0.8;font-family:Cousine;-inkscape-font-specification:'Cousine, Normal';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#ff8100;fill-rule:evenodd;stroke-width:2.99278;stroke-linecap:round;stroke-linejoin:round;stroke-dashoffset:23.811;paint-order:fill markers stroke"
+       x="-0.51442647"
+       y="94.987572"
        id="text1"><tspan
-         sodipodi:role="line"
          id="tspan1"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:123.512px;font-family:Ramabhadra;-inkscape-font-specification:'Ramabhadra, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:3.9708"
-         x="-0.19829999"
-         y="103.89407">vlx</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:93.0906px;font-family:Ramabhadra;-inkscape-font-specification:'Ramabhadra, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:2.99278"
+         x="-0.51442647"
+         y="94.987572"
+         sodipodi:role="line">TLZ</tspan></text>
   </g>
 </svg>

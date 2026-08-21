@@ -1,12 +1,12 @@
 {
-  "name": "velox-vscode-plugin",
-  "displayName": "Velox VS Code plugin",
-  "description": "The official Velox programming language plugin !",
+  "name": "tolza-vscode-plugin",
+  "displayName": "Tolza VS Code plugin",
+  "description": "The official Tolza programming language plugin !",
   "author": "Programmare",
   "publisher": "",
   "version": "1.0.0",
-  "repository": "https://github.com/TheProgrammare/Velox-VScode-Plugin",
-  "icon": "icons/velox-logo.png",
+  "repository": "https://github.com/TheProgrammare/Tolza-VScode-Plugin",
+  "icon": "icons/tolza-logo-512.png",
   "engines": {
     "vscode": "^1.125.0"
   },
@@ -16,71 +16,71 @@
   "contributes": {
     "languages": [
       {
-        "id": "velox",
+        "id": "tolza",
         "aliases": [
-          "Velox",
-          "velox"
+          "Tolza",
+          "tolza"
         ],
         "extensions": [
-          ".vlx"
+          ".tlz"
         ],
         "configuration": "./language-configuration.json"
       }
     ],
     "commands": [
       {
-        "command": "velox.build",
-        "title": "Velox: Build"
+        "command": "tolza.build",
+        "title": "Tolza: Build"
       },
       {
-        "command": "velox.run",
-        "title": "Velox: Run"
+        "command": "tolza.run",
+        "title": "Tolza: Run"
       },
       {
-        "command": "velox.check",
-        "title": "Velox: Check"
+        "command": "tolza.check",
+        "title": "Tolza: Check"
       }
     ],
     "grammars": [
       {
-        "language": "velox",
-        "scopeName": "source.velox",
-        "path": "./syntaxes/velox.tmLanguage.json"
+        "language": "tolza",
+        "scopeName": "source.tolza",
+        "path": "./syntaxes/tolza.tmLanguage.json"
       }
     ],
     "snippets": [
       {
-        "language": "velox",
-        "path": "./snippets/velox-snippets.json"
+        "language": "tolza",
+        "path": "./snippets/tolza-snippets.json"
       }
     ],
     "iconThemes": [
       {
-        "id": "velox-theme-icons",
-        "label": "Velox theme icons",
+        "id": "tolza-theme-icons",
+        "label": "Tolza theme icons",
         "path": "./icons/fileicons.json"
       }
     ],
     "configuration": [
       {
-        "title": "Velox",
+        "title": "Tolza",
         "properties": {
-          "velox.toolchain": {
+          "tolza.toolchain": {
             "type": "string",
-            "default": "velox",
-            "description": "Path to the Velox toolchain binary. e.g. /usr/bin/velox"
+            "default": "tolza",
+            "description": "Path to the Tolza toolchain binary. e.g. /usr/bin/tolza"
           },
-          "velox.compiler": {
+          "tolza.compiler": {
             "type": "string",
-            "default": "velox-compiler",
-            "description": "path to the Velox compiler binary. e.g. /usr/bin/velox-compiler"
+            "default": "tolza-compiler",
+            "description": "path to the Tolza compiler binary. e.g. /usr/bin/tolza-compiler"
           },
-          "velox.command_check_args": {
+          "tolza.command_check_args": {
             "type": "string",
             "default": "--diagnostic-format json",
             "description": "Arguments for the check command"
           },
-          "velox.command_build_args": {
+          "tolza.command_build_args": {
             "type": "string",
             "default": "--diagnostic-format json",
             "description": "Arguments for the build command"
@@ -90,10 +90,13 @@
     ]
   },
   "activationEvents": [
-    "onLanguage:velox",
-    "onCommand:velox.build",
-    "onCommand:velox.run",
-    "onCommand:velox.check"
+    "onLanguage:tolza",
+    "workspaceContains:tolza.toml",
+    "workspaceContains:*.tlz",
+    "workspaceContains:**/*.tlz",
+    "onCommand:tolza.build",
+    "onCommand:tolza.run",
+    "onCommand:tolza.check"
   ],
   "main": "./out/extension.js",
   "scripts": {
@@ -105,6 +108,10 @@
   "devDependencies": {
     "@types/node": "^26.1.1",
     "@types/vscode": "^1.125.0",
+    "@types/which": "^3.0.4",
     "typescript": "^6.0.3"
+  },
+  "dependencies": {
+    "which": "^6.0.1"
   }
 }

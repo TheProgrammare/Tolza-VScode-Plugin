@@ -1,4 +1,4 @@
-export const veloxState = {
+export const tolzaState = {
   config: undefined as string | undefined,
 
   executable: undefined as string | undefined,
@@ -10,7 +10,7 @@ export const veloxState = {
   generation: 0,
 };
 
-export const veloxParameters = {
+export const tolzaParameters = {
   path_toolchain: "" as string,
 
   path_compiler: "" as string,

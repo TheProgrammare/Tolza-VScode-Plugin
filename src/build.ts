@@ -1,21 +1,21 @@
 import * as vscode from "vscode";
 import { execFile } from "child_process";
-import { veloxParameters, veloxState } from "./state";
+import { tolzaParameters, tolzaState } from "./state";
 import { parseDiagnostics } from "./diagnostics";
 
 export async function runBuild() {
-  if (!veloxState.config) {
-    vscode.window.showErrorMessage("No velox.toml found");
+  if (!tolzaState.config) {
+    vscode.window.showErrorMessage("No tolza.toml found");
 
     return false;
   }
 
-  let configFile = veloxState.config.toString();
+  let configFile = tolzaState.config.toString();
 
   return new Promise<boolean>((resolve) => {
     execFile(
-      veloxParameters.path_compiler,
-      ["build", configFile, veloxParameters.command_build_args],
+      tolzaParameters.path_compiler,
+      ["build", configFile, tolzaParameters.command_build_args],
       async (error, stdout, stderr) => {
         await parseDiagnostics(stdout + stderr);
 
@@ -32,9 +32,9 @@ export async function runBuild() {
 }
 
 function parseBuildResult(output: string): boolean {
-  const begin = "@@VELOX_EXORDIUM_RESULTATI@@";
+  const begin = "@@TOLZA_EXORDIUM_RESULTATI@@";
 
-  const end = "@@VELOX_EXORDIUM_RESULTATI@@";
+  const end = "@@TOLZA_EXORDIUM_RESULTATI@@";
 
   const start = output.indexOf(begin);
 
@@ -52,9 +52,9 @@ function parseBuildResult(output: string): boolean {
     return false;
   }
 
-  veloxState.executable = result.executable;
+  tolzaState.executable = result.executable;
 
-  veloxState.buildMode = result.mode;
+  tolzaState.buildMode = result.mode;
 
   return true;
 }

@@ -1,5 +1,5 @@
 import * as vscode from "vscode";
-import { veloxParameters, veloxState } from "./state";
+import { tolzaParameters, tolzaState } from "./state";
 import { execFile } from "child_process";
 import { parseDiagnostics } from "./diagnostics";
 
@@ -19,7 +19,7 @@ export function scheduleCheck(delay: number) {
 }
 
 export async function runCheck() {
-  if (!veloxState.config) {
+  if (!tolzaState.config) {
     return;
   }
 
@@ -36,8 +36,8 @@ export async function runCheck() {
   const generation = ++checkGeneration;
 
   execFile(
-    veloxParameters.path_compiler,
-    ["check", veloxState.config, veloxParameters.command_check_args],
+    tolzaParameters.path_compiler,
+    ["check", tolzaState.config, tolzaParameters.command_check_args],
     async (_error, stdout, stderr) => {
       if (generation !== checkGeneration) {
         checkRunning = false;

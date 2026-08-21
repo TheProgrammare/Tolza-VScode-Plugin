@@ -9,13 +9,12 @@
    width="650"
    height="230"
    inkscape:version="1.4 (e7c3feb100, 2024-10-09)"
+   xml:space="preserve"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
-   xmlns:svg="http://www.w3.org/2000/svg">
-  <defs
-     id="defs3" />
-  <sodipodi:namedview
+   xmlns:svg="http://www.w3.org/2000/svg"><defs
+     id="defs3" /><sodipodi:namedview
      id="namedview3"
      pagecolor="#505050"
      bordercolor="#eeeeee"
@@ -24,16 +23,15 @@
      inkscape:pageopacity="0"
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#505050"
-     inkscape:zoom="1.2143718"
-     inkscape:cx="228.92495"
-     inkscape:cy="106.22777"
+     inkscape:zoom="1.7173811"
+     inkscape:cx="149.9376"
+     inkscape:cy="124.60834"
      inkscape:window-width="1920"
      inkscape:window-height="1009"
      inkscape:window-x="0"
      inkscape:window-y="35"
      inkscape:window-maximized="1"
-     inkscape:current-layer="svg3" />
-  <text
+     inkscape:current-layer="svg3" /><text
      xml:space="preserve"
      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:77.8744px;line-height:0.8;font-family:'Ubuntu Mono';-inkscape-font-specification:'Ubuntu Mono, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;display:inline;fill:#bcd700;stroke:#0d1117;stroke-width:8.68264;stroke-linecap:round;stroke-linejoin:round;stroke-dashoffset:23.811;stroke-opacity:1;paint-order:markers stroke fill"
      x="276.06671"
@@ -43,7 +41,7 @@
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:77.8744px;font-family:Z003;-inkscape-font-specification:'Z003, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;fill-opacity:1;stroke:#0d1117;stroke-width:8.68262;stroke-opacity:1"
        x="276.06671"
        y="58.469505"
-       id="tspan4">The Velox</tspan><tspan
+       id="tspan4">The Tolza</tspan><tspan
        sodipodi:role="line"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:77.8744px;font-family:Z003;-inkscape-font-specification:'Z003, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;fill-opacity:1;stroke:#0d1117;stroke-width:8.68262;stroke-opacity:1"
        x="276.06671"
@@ -53,76 +51,25 @@
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:77.8744px;font-family:Z003;-inkscape-font-specification:'Z003, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;fill-opacity:1;stroke:#0d1117;stroke-width:8.68262;stroke-opacity:1"
        x="276.06671"
        y="203.42371"
-       id="tspan6">Plugin</tspan></text>
-  <g
-     id="g2"
-     transform="matrix(3.7795275,0,0,3.7795275,60.248089,11.208665)"
-     style="display:inline">
-    <g
-       inkscape:label="Calque 1"
-       inkscape:groupmode="layer"
-       id="layer1-53"
-       transform="translate(-57.41867,-96.051952)">
-      <path
-         d="m 81.112014,96.051842 -9.983886,12.658138 9.983886,37.26078 9.984404,-37.26078 z"
-         style="font-variation-settings:'opsz' 96;fill:#111827;stroke:#ffffff;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:23.811;stroke-opacity:1;paint-order:markers stroke fill"
-         id="path5" />
-      <path
-         d="m 57.436803,121.20009 -0.01809,12.16153 16.655831,16.70544 -6.105571,-22.7862 z"
-         style="font-variation-settings:'opsz' 96;fill:#111827;stroke:#ffffff;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:23.811;stroke-opacity:1;paint-order:markers stroke fill"
-         id="path1" />
-      <path
-         d="m 104.78805,121.20014 0.0181,12.16153 -16.655831,16.70544 6.105571,-22.7862 z"
-         style="font-variation-settings:'opsz' 96;fill:#111827;stroke:#ffffff;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:23.811;stroke-opacity:1;paint-order:markers stroke fill"
-         id="path1-2" />
-      <path
-         style="font-variation-settings:'opsz' 96;fill:#111827;fill-opacity:1;stroke-width:2.5834;stroke-linecap:round;stroke-linejoin:round;stroke-dashoffset:23.811;paint-order:markers stroke fill"
-         d="m 91.096418,108.70998 -9.984014,12.30141 V 96.051951 Z"
-         id="path19-5" />
-      <path
-         style="font-variation-settings:'opsz' 96;fill:#374151;fill-opacity:1;stroke-width:2.5834;stroke-linecap:round;stroke-linejoin:round;stroke-dashoffset:23.811;paint-order:markers stroke fill"
-         d="m 81.112404,121.01139 v 24.95944 l 9.984014,-37.26085 z"
-         id="path20-62" />
-      <path
-         style="font-variation-settings:'opsz' 96;fill:#111827;fill-opacity:1;stroke-width:2.5834;stroke-linecap:round;stroke-linejoin:round;stroke-dashoffset:23.811;paint-order:markers stroke fill"
-         d="m 104.80614,133.36167 -8.336949,2.27188 8.318909,-14.43349 z"
-         id="path21-9" />
-      <path
-         style="font-variation-settings:'opsz' 96;fill:#374151;fill-opacity:1;stroke-width:2.5834;stroke-linecap:round;stroke-linejoin:round;stroke-dashoffset:23.811;paint-order:markers stroke fill"
-         d="m 104.80614,133.36168 -16.655849,16.70537 8.3189,-14.4335 z"
-         id="path22-1" />
-      <path
-         style="font-variation-settings:'opsz' 96;fill:#374151;fill-opacity:1;stroke-width:2.5834;stroke-linecap:round;stroke-linejoin:round;stroke-dashoffset:23.811;paint-order:markers stroke fill"
-         d="m 71.12839,108.70998 9.984014,12.30141 V 96.051952 Z"
-         id="path19-0-2" />
-      <path
-         style="font-variation-settings:'opsz' 96;fill:#111827;fill-opacity:1;stroke-width:2.5834;stroke-linecap:round;stroke-linejoin:round;stroke-dashoffset:23.811;paint-order:markers stroke fill"
-         d="m 81.112404,121.01139 v 24.95944 L 71.12839,108.70998 Z"
-         id="path20-6-7" />
-      <path
-         style="font-variation-settings:'opsz' 96;fill:#374151;fill-opacity:1;stroke-width:2.5834;stroke-linecap:round;stroke-linejoin:round;stroke-dashoffset:23.811;paint-order:markers stroke fill"
-         d="m 57.41867,133.36167 8.336948,2.27188 -8.318911,-14.4335 z"
-         id="path21-2-0" />
-      <path
-         style="font-variation-settings:'opsz' 96;fill:#111827;fill-opacity:1;stroke-width:2.5834;stroke-linecap:round;stroke-linejoin:round;stroke-dashoffset:23.811;paint-order:markers stroke fill"
-         d="m 57.41867,133.36167 16.655848,16.70537 -8.3189,-14.43349 z"
-         id="path22-6-9" />
-      <path
-         style="font-variation-settings:'opsz' 96;fill:#111827;fill-opacity:1;stroke-width:2.5834;stroke-linecap:round;stroke-linejoin:round;stroke-dashoffset:23.811;paint-order:markers stroke fill"
-         d="m 67.968994,127.28088 -2.213376,8.35267 -8.318894,-14.43351 z"
-         id="path21-2-7-3" />
-      <path
-         style="font-variation-settings:'opsz' 96;fill:#374151;fill-opacity:1;stroke-width:2.5834;stroke-linecap:round;stroke-linejoin:round;stroke-dashoffset:23.811;paint-order:markers stroke fill"
-         d="m 67.968998,127.28088 6.10552,22.78616 -8.3189,-14.43349 z"
-         id="path22-6-5-6" />
-      <path
-         style="font-variation-settings:'opsz' 96;fill:#374151;fill-opacity:1;stroke-width:2.5834;stroke-linecap:round;stroke-linejoin:round;stroke-dashoffset:23.811;paint-order:markers stroke fill"
-         d="m 94.275285,127.28333 2.202927,8.35544 8.336948,-14.4231 z"
-         id="path21-2-9-0" />
-      <path
-         style="font-variation-settings:'opsz' 96;fill:#111827;fill-opacity:1;stroke-width:2.5834;stroke-linecap:round;stroke-linejoin:round;stroke-dashoffset:23.811;paint-order:markers stroke fill"
-         d="m 94.275285,127.28334 -6.13402,22.77851 8.336947,-14.42308 z"
-         id="path22-6-2-6" />
-    </g>
-  </g>
-</svg>
+       id="tspan6">Plugin</tspan></text><g
+     inkscape:label="Calque 1"
+     id="layer1"
+     transform="matrix(1.5320615,0,0,1.5320615,45.929732,11.228357)"><rect
+       style="fill:#5b2a86;fill-opacity:1;fill-rule:evenodd;stroke:#e3a72f;stroke-width:3.30424;stroke-linecap:round;stroke-linejoin:miter;stroke-dasharray:none;stroke-dashoffset:23.811;stroke-opacity:1;paint-order:fill markers stroke"
+       id="rect30"
+       width="40.872929"
+       height="40.873428"
+       x="47.296864"
+       y="47.296616" /><path
+       style="fill:#5b2a86;fill-opacity:1;fill-rule:evenodd;stroke:#e3a72f;stroke-width:3.30424;stroke-linecap:round;stroke-linejoin:miter;stroke-dasharray:none;stroke-dashoffset:23.811;stroke-opacity:1;paint-order:fill markers stroke"
+       d="m 67.733332,67.733336 -16.34947,49.047404 16.349474,16.34949 16.348971,-16.34898 z"
+       id="path19" /><path
+       style="fill:#5b2a86;fill-opacity:1;fill-rule:evenodd;stroke:#e3a72f;stroke-width:3.30424;stroke-linecap:round;stroke-linejoin:miter;stroke-dasharray:none;stroke-dashoffset:23.811;stroke-opacity:1;paint-order:fill markers stroke"
+       d="M 67.733332,67.733336 116.78074,84.082809 133.13023,67.733336 116.78125,51.384364 Z"
+       id="path20" /><path
+       style="fill:#5b2a86;fill-opacity:1;fill-rule:evenodd;stroke:#e3a72f;stroke-width:3.30424;stroke-linecap:round;stroke-linejoin:miter;stroke-dasharray:none;stroke-dashoffset:23.811;stroke-opacity:1;paint-order:fill markers stroke"
+       d="M 67.733332,67.733336 84.082806,18.685921 67.733336,2.3364504 51.384364,18.685422 Z"
+       id="path21" /><path
+       style="fill:#5b2a86;fill-opacity:1;fill-rule:evenodd;stroke:#e3a72f;stroke-width:3.30424;stroke-linecap:round;stroke-linejoin:miter;stroke-dasharray:none;stroke-dashoffset:23.811;stroke-opacity:1;paint-order:fill markers stroke"
+       d="M 2.3364505,67.733336 18.685422,84.082307 67.733332,67.733336 18.685921,51.383866 Z"
+       id="path22" /></g></svg>

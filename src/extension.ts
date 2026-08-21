@@ -5,59 +5,69 @@ import * as utils from "./utils";
 import { runBuild } from "./build";
 import { runCheck, scheduleCheck } from "./check";
 import { run } from "./run";
-import { veloxParameters, veloxState } from "./state";
+import { tolzaParameters, tolzaState } from "./state";
 import { existsSync } from "fs";
 import { exit } from "process";
 
-export function activate(context: vscode.ExtensionContext) {
-  utils.findVeloxConfig();
+export async function activate(context: vscode.ExtensionContext) {
+  utils.findTolzaConfig();
 
-  if (!veloxState.config) {
-    vscode.window.showErrorMessage("No velox.toml found");
+  if (!tolzaState.config) {
+    vscode.window.showErrorMessage("No tolza.toml found");
     return;
   }
 
-  const config = vscode.workspace.getConfiguration("velox");
+  const config = vscode.workspace.getConfiguration("tolza");
 
-  veloxParameters.path_toolchain = config.get<string>("toolchain", "");
-  veloxParameters.path_compiler = config.get<string>("compiler", "");
-  veloxParameters.command_check_args = config.get<string>(
+  tolzaParameters.path_toolchain = config.get<string>("toolchain", "tolza");
+  tolzaParameters.path_compiler = config.get<string>(
+    "compiler",
+    "tolza-compiler",
+  );
+  tolzaParameters.command_check_args = config.get<string>(
     "command_check_args",
     "",
   );
-  veloxParameters.command_build_args = config.get<string>(
+  tolzaParameters.command_build_args = config.get<string>(
     "command_build_args",
     "",
   );
 
-  if (!existsSync(veloxParameters.path_toolchain)) {
-    console.error(
-      'Invalid toolchain path: "',
-      veloxParameters.path_toolchain,
-      '"',
+  const toolchain_result = await utils.check_bin(
+    tolzaParameters.path_toolchain,
+    vscode.workspace.workspaceFolders?.[0]?.uri.fsPath,
+  );
+
+  if (!toolchain_result.valid) {
+    vscode.window.showErrorMessage(
+      `Invalid Tolza toolchain : ${toolchain_result.error}`,
     );
-    exit(1);
+    return;
   }
-  if (!existsSync(veloxParameters.path_compiler)) {
-    console.error(
-      'Invalid compiler path: "',
-      veloxParameters.path_compiler,
-      '"',
+
+  const compiler_result = await utils.check_bin(
+    tolzaParameters.path_compiler,
+    vscode.workspace.workspaceFolders?.[0]?.uri.fsPath,
+  );
+
+  if (!compiler_result.valid) {
+    vscode.window.showErrorMessage(
+      `Invalid Tolza compiler : ${compiler_result.error}`,
     );
-    exit(1);
+    return;
   }
 
   context.subscriptions.push(diagnostic.diagnostics);
 
   context.subscriptions.push(
-    vscode.commands.registerCommand("velox.check", runCheck),
+    vscode.commands.registerCommand("tolza.check", runCheck),
   );
 
   context.subscriptions.push(
-    vscode.commands.registerCommand("velox.build", runBuild),
+    vscode.commands.registerCommand("tolza.build", runBuild),
   );
 
-  context.subscriptions.push(vscode.commands.registerCommand("velox.run", run));
+  context.subscriptions.push(vscode.commands.registerCommand("tolza.run", run));
 
   context.subscriptions.push(
     vscode.workspace.onDidChangeTextDocument(() => scheduleCheck(500)),
@@ -66,6 +76,8 @@ export function activate(context: vscode.ExtensionContext) {
   context.subscriptions.push(
     vscode.workspace.onDidSaveTextDocument(() => scheduleCheck(0)),
   );
+
+  console.log("Extension Tolza activated");
 
   scheduleCheck(0);
 }

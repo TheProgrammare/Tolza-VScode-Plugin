@@ -2,7 +2,7 @@
 
 🇬🇧🇺🇸 ![English](/README.md)
 
-![Velox logo title](/icons/logo-title.png)
+![Tolza logo title](/icons/logo-title.png)
 
 ![Compiler](https://img.shields.io/badge/VScode_Plugin-Done-darkgreen)</br>
 ![License](https://img.shields.io/badge/License-Apache_2.0-darkblue)
@@ -10,23 +10,23 @@
 
 </div>
 
-Une extension complète pour intégrer le langage de programmation **Velox** dans Visual Studio Code.
+Une extension complète pour intégrer le langage de programmation **Tolza** dans Visual Studio Code.
 
-> Pour le projet Velox, aller [ici](https://github.com/TheProgrammare/Velox)
+> Pour le projet Tolza, aller [ici](https://github.com/TheProgrammare/Tolza)
 
 ## Fonctionnalités
 
-L'extension **Velox** offre une expérience de développement moderne, fluide et ergonomique en intégrant directement les principaux outils du langage au sein de VS Code.
+L'extension **Tolza** offre une expérience de développement moderne, fluide et ergonomique en intégrant directement les principaux outils du langage au sein de VS Code.
 
 ### Coloration syntaxique
 
-* Mise en évidence complète de la syntaxe du langage Velox.
+* Mise en évidence complète de la syntaxe du langage Tolza.
 * Prise en charge des mots-clés, types, commentaires, chaînes de caractères, nombres, opérateurs et autres éléments syntaxiques.
 * Thèmes compatibles avec l'ensemble des thèmes Visual Studio Code.
 
 ### Analyse syntaxique
 
-L'extension s'appuie sur l'analyseur syntaxique officiel de Velox afin de :
+L'extension s'appuie sur l'analyseur syntaxique officiel de Tolza afin de :
 
 * détecter les erreurs de syntaxe en temps réel ;
 * fournir des diagnostics précis ;
@@ -34,13 +34,13 @@ L'extension s'appuie sur l'analyseur syntaxique officiel de Velox afin de :
 
 ### Compilation intégrée
 
-Compilez vos projets Velox directement depuis Visual Studio Code.
+Compilez vos projets Tolza directement depuis Visual Studio Code.
 
-L'extension intègre le compilateur Velox pour offrir un flux de développement simple et rapide, sans quitter votre environnement de travail.
+L'extension intègre le compilateur Tolza pour offrir un flux de développement simple et rapide, sans quitter votre environnement de travail.
 
 ## Une intégration pensée pour les développeurs
 
-L'objectif de cette extension est de proposer une intégration native du langage **Velox** dans Visual Studio Code, avec une interface cohérente, ergonomique et performante.
+L'objectif de cette extension est de proposer une intégration native du langage **Tolza** dans Visual Studio Code, avec une interface cohérente, ergonomique et performante.
 
 Elle permet aux développeurs de bénéficier d'un environnement de développement fluide, où l'édition, l'analyse du code et la compilation s'effectuent de manière transparente.
 
@@ -50,6 +50,6 @@ Elle permet aux développeurs de bénéficier d'un environnement de développeme
 * Analyse syntaxique intégrée.
 * Compilation directement depuis VS Code.
 * Expérience utilisateur fluide et ergonomique.
-* Intégration native du langage Velox dans l'éditeur.
+* Intégration native du langage Tolza dans l'éditeur.
 
-Développez vos applications Velox plus rapidement grâce à une extension conçue pour offrir une expérience de développement moderne, efficace et parfaitement intégrée à Visual Studio Code.
+Développez vos applications Tolza plus rapidement grâce à une extension conçue pour offrir une expérience de développement moderne, efficace et parfaitement intégrée à Visual Studio Code.

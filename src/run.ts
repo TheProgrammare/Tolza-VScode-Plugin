@@ -1,6 +1,6 @@
 import * as vscode from "vscode";
 import { execFile } from "child_process";
-import { veloxState } from "./state";
+import { tolzaState } from "./state";
 import { runBuild } from "./build";
 
 export async function run() {
@@ -12,15 +12,15 @@ export async function run() {
     return;
   }
 
-  if (!veloxState.executable) {
+  if (!tolzaState.executable) {
     vscode.window.showErrorMessage("Executable not found");
 
     return;
   }
 
-  const terminal = vscode.window.createTerminal("Velox Run");
+  const terminal = vscode.window.createTerminal("Tolza Run");
 
   terminal.show();
 
-  terminal.sendText(veloxState.executable);
+  terminal.sendText(tolzaState.executable);
 }

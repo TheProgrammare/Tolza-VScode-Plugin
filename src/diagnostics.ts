@@ -1,19 +1,19 @@
 import path = require("path");
 import * as vscode from "vscode";
 
-export var diagnostics = vscode.languages.createDiagnosticCollection("velox");
+export var diagnostics = vscode.languages.createDiagnosticCollection("tolza");
 
 export async function parseDiagnostics(output: string) {
-  const begin = "@@VELOX_EXORDIUM_DIAGNOSTICORUM@@";
+  const begin = "@@TOLZA_EXORDIUM_DIAGNOSTICORUM@@";
 
-  const end = "@@VELOX_CLAUSULA_DIAGNOSTICORUM@@";
+  const end = "@@TOLZA_CLAUSULA_DIAGNOSTICORUM@@";
 
   const start = output.indexOf(begin);
 
   const finish = output.indexOf(end);
 
   if (start === -1 || finish === -1 || finish < start) {
-    console.warn("Velox: no diagnostic block found");
+    console.warn("Tolza: no diagnostic block found");
 
     diagnostics.clear();
 
@@ -27,7 +27,7 @@ export async function parseDiagnostics(output: string) {
   try {
     errors = JSON.parse(json);
   } catch {
-    console.error("Velox: invalid diagnostic JSON:\n", json);
+    console.error("Tolza: invalid diagnostic JSON:\n", json);
 
     return;
   }
