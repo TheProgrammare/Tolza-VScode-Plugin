@@ -23,27 +23,16 @@ A complete Visual Studio Code extension that brings first-class support for the 
 
 The **Tolza** extension provides a modern, seamless, and ergonomic development experience by integrating the core language tooling directly into Visual Studio Code.
 
-### Syntax Highlighting
+* Build & Run
+* Syntax highlighting
+* Code Analysis
+* Snippets
+* *LSP (soon)*
+* Toolchain commands
+* Workspace auto detection
+* compiler and toolchain configuration
 
-* Full syntax highlighting for the Tolza language.
-* Support for keywords, types, comments, strings, numbers, operators, and other language constructs.
-* Compatible with all Visual Studio Code themes.
-
-### Syntax Analysis
-
-Powered by the official Tolza parser, the extension provides:
-
-* Real-time syntax error detection.
-* Accurate diagnostics and error reporting.
-* Immediate feedback while you write code.
-
-### Integrated Compilation
-
-Compile your Tolza projects directly from Visual Studio Code.
-
-The extension integrates the Tolza compiler into your workflow, allowing you to build your projects without leaving the editor.
-
-### Workspace operations
+### Workspace commands
 
 Powered by the officiel Tolza toolchain:
 * workspace creator
