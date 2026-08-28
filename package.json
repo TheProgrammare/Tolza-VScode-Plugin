@@ -19,28 +19,120 @@
         "id": "tolza",
         "aliases": [
           "Tolza",
-          "tolza"
+          "tolza",
+          "tlz"
         ],
         "extensions": [
           ".tlz"
         ],
-        "configuration": "./language-configuration.json"
+        "configuration": "./language-configuration.json",
+        "icon": {
+          "light": "./icons/tlz.svg",
+          "dark": "./icons/tlz.svg"
+        }
       }
     ],
     "commands": [
       {
         "command": "tolza.build",
-        "title": "Tolza: Build"
+        "title": "Build",
+        "icon": "$(build)"
       },
       {
         "command": "tolza.run",
-        "title": "Tolza: Run"
+        "title": "Run",
+        "icon": "$(play)"
+      },
+      {
+        "command": "tolza.build_check",
+        "title": "Check",
+        "icon": "$(remote)"
+      },
+      {
+        "command": "tolza.audit",
+        "title": "Audit",
+        "icon": "$(list-tree)"
       },
       {
         "command": "tolza.check",
-        "title": "Tolza: Check"
+        "title": "Check .toml file",
+        "icon": "$(unverified)"
+      },
+      {
+        "command": "tolza.sync",
+        "title": "Sync module tree with files",
+        "icon": "$(file-submodule)"
+      },
+      {
+        "command": "tolza.new.workspace",
+        "title": "New Workspace",
+        "icon": "$(project)"
+      },
+      {
+        "command": "tolza.new.profile",
+        "title": "New Profile",
+        "icon": "$(note)"
+      },
+      {
+        "command": "tolza.new.manifest",
+        "title": "New Manifest",
+        "icon": "$(file-text)"
       }
     ],
+    "submenus": [
+      {
+        "id": "tolza.workspaceMenu",
+        "label": "Tolza"
+      },
+      {
+        "id": "tolza.projectMenu",
+        "label": "Tolza"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "submenu": "tolza.workspaceMenu",
+          "when": "explorerResourceIsFolder"
+        },
+        {
+          "submenu": "tolza.projectMenu",
+          "when": "resourceExtname == .toml"
+        }
+      ],
+      "tolza.workspaceMenu": [
+        {
+          "command": "tolza.new.workspace",
+          "group": "new"
+        },
+        {
+          "command": "tolza.new.profile",
+          "group": "new"
+        },
+        {
+          "command": "tolza.new.manifest",
+          "group": "new"
+        },
+        {
+          "command": "tolza.audit",
+          "group": "workspace"
+        }
+      ],
+      "tolza.projectMenu": [
+        {
+          "command": "tolza.check",
+          "group": "workspace"
+        },
+        {
+          "command": "tolza.build",
+          "group": "compiler"
+        },
+        {
+          "command": "tolza.run",
+          "group": "compiler"
+        }
+      ]
+    },
     "grammars": [
       {
         "language": "tolza",
@@ -52,13 +144,6 @@
       {
         "language": "tolza",
         "path": "./snippets/tolza-snippets.json"
-      }
-    ],
-    "iconThemes": [
-      {
-        "id": "tolza-theme-icons",
-        "label": "Tolza theme icons",
-        "path": "./icons/fileicons.json"
       }
     ],
     "configuration": [
@@ -90,13 +175,9 @@
     ]
   },
   "activationEvents": [
-    "onLanguage:tolza",
     "workspaceContains:tolza.toml",
     "workspaceContains:*.tlz",
-    "workspaceContains:**/*.tlz",
-    "onCommand:tolza.build",
-    "onCommand:tolza.run",
-    "onCommand:tolza.check"
+    "workspaceContains:**/*.tlz"
   ],
   "main": "./out/extension.js",
   "scripts": {

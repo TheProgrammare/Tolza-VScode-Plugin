@@ -9,11 +9,11 @@
    id="svg1"
    inkscape:version="1.4 (e7c3feb100, 2024-10-09)"
    sodipodi:docname="tlz.svg"
+   xml:space="preserve"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
-   xmlns:svg="http://www.w3.org/2000/svg">
-  <sodipodi:namedview
+   xmlns:svg="http://www.w3.org/2000/svg"><sodipodi:namedview
      id="namedview1"
      pagecolor="#505050"
      bordercolor="#eeeeee"
@@ -23,31 +23,31 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#505050"
      inkscape:document-units="mm"
-     inkscape:zoom="0.73940797"
-     inkscape:cx="294.15425"
-     inkscape:cy="421.95921"
+     inkscape:zoom="1.4142136"
+     inkscape:cx="284.61047"
+     inkscape:cy="265.16504"
      inkscape:window-width="1920"
      inkscape:window-height="1009"
      inkscape:window-x="0"
      inkscape:window-y="35"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer1" />
-  <defs
-     id="defs1" />
-  <g
+     inkscape:current-layer="layer1" /><defs
+     id="defs1" /><g
      inkscape:label="Calque 1"
      inkscape:groupmode="layer"
-     id="layer1">
-    <text
-       xml:space="preserve"
-       style="font-size:93.0906px;line-height:0.8;font-family:Cousine;-inkscape-font-specification:'Cousine, Normal';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#ff8100;fill-rule:evenodd;stroke-width:2.99278;stroke-linecap:round;stroke-linejoin:round;stroke-dashoffset:23.811;paint-order:fill markers stroke"
-       x="-0.51442647"
-       y="94.987572"
-       id="text1"><tspan
-         id="tspan1"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:93.0906px;font-family:Ramabhadra;-inkscape-font-specification:'Ramabhadra, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:2.99278"
-         x="-0.51442647"
-         y="94.987572"
-         sodipodi:role="line">TLZ</tspan></text>
-  </g>
-</svg>
+     id="layer1"><g
+       id="g2"
+       transform="matrix(0.91681337,0,0,0.91681337,13.411092,-0.2831248)"
+       style="display:inline;fill:#e3a72f;fill-opacity:1"><path
+         style="fill:#e3a72f;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:3.63297;stroke-linecap:round;stroke-linejoin:miter;stroke-dasharray:none;stroke-dashoffset:23.811;stroke-opacity:1;paint-order:fill markers stroke"
+         d="m 74.655614,74.188238 -21.92867,44.206512 21.928675,14.73582 21.928005,-14.73536 z"
+         id="path19" /><path
+         style="fill:#e3a72f;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:3.63294;stroke-linecap:round;stroke-linejoin:miter;stroke-dasharray:none;stroke-dashoffset:23.811;stroke-opacity:1;paint-order:fill markers stroke"
+         d="M 74.655614,74.187561 118.51134,96.291297 133.13023,74.187561 118.51179,52.084501 Z"
+         id="path20" /><path
+         style="fill:#e3a72f;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:3.63297;stroke-linecap:round;stroke-linejoin:miter;stroke-dasharray:none;stroke-dashoffset:23.811;stroke-opacity:1;paint-order:fill markers stroke"
+         d="M 74.655614,74.188238 96.584284,29.981717 74.655619,15.245911 52.727618,29.981267 Z"
+         id="path21" /><path
+         style="fill:#e3a72f;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:3.63294;stroke-linecap:round;stroke-linejoin:miter;stroke-dasharray:none;stroke-dashoffset:23.811;stroke-opacity:1;paint-order:fill markers stroke"
+         d="M 16.181012,74.188238 30.79944,96.291294 74.655614,74.188238 30.799886,52.084504 Z"
+         id="path22" /></g></g></svg>

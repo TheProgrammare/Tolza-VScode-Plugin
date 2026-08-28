@@ -2,6 +2,28 @@
     "version": "2.0.0",
     "tasks": [
         {
+            "label": "npm: install",
+            "type": "shell",
+            "command": "npm install",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            }
+        },
+        {
+            "label": "npm: compile",
+            "dependsOn": "npm: install",
+            "type": "shell",
+            "command": "npm run compile",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": []
+        },
+        {
             "label": "Build Tolza VSIX",
             "type": "shell",
             "command": "npx vsce package",
@@ -9,10 +31,6 @@
                 "cwd": "${workspaceFolder}"
             },
             "dependsOn": "npm: compile",
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            },
             "problemMatcher": []
         }
     ]
