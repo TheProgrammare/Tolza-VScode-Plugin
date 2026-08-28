@@ -32,15 +32,13 @@ export async function runBuild_Check() {
 
   checkRunning = true;
 
-  await vscode.workspace.saveAll();
-
   const generation = ++checkGeneration;
 
   execFile(
       tolzaParameters.path_compiler,
       [
-        'build', tolzaState.config, '--check',
-        tolzaParameters.command_check_args
+        'build', tolzaState.config, '--check', '--diagnostic-format', 'json',
+        '--error-mode', 'fail_recover', tolzaParameters.command_check_args
       ],
       async (_error, stdout, stderr) => {
         if (generation !== checkGeneration) {

@@ -26,7 +26,7 @@ export async function config_workspace(context: vscode.ExtensionContext) {
 }
 
 export async function new_workspace(uri: vscode.Uri) {
-  console.log('Selected folder :', uri.fsPath);
+  tolzaState.output.appendLine(`Selected folder : ${uri.fsPath}`);
 
   const projectName = await vscode.window.showInputBox({
     prompt: 'Tolza project name',
@@ -83,7 +83,7 @@ export async function new_workspace(uri: vscode.Uri) {
 
 
 export async function new_manifest(uri: vscode.Uri) {
-  console.log('Selected folder :', uri.fsPath);
+  tolzaState.output.appendLine(`Selected folder : ${uri.fsPath}`);
 
   const projectName = await vscode.window.showInputBox({
     prompt: 'Tolza project name',
@@ -122,8 +122,8 @@ export async function new_manifest(uri: vscode.Uri) {
             return;
           }
 
-          console.log(stdout);
-          console.log(stderr);
+          tolzaState.output.appendLine(stdout);
+          tolzaState.output.appendLine(stderr);
           resolve(true);
         },
     );
@@ -141,7 +141,7 @@ export async function new_manifest(uri: vscode.Uri) {
 }
 
 export async function new_profile(uri: vscode.Uri) {
-  console.log('Selected folder :', uri.fsPath);
+  tolzaState.output.appendLine(`Selected folder : ${uri.fsPath}`);
 
   const profileName = await vscode.window.showInputBox({
     prompt: 'Tolza project name',
@@ -186,8 +186,8 @@ export async function new_profile(uri: vscode.Uri) {
             return;
           }
 
-          console.log(stdout);
-          console.log(stderr);
+          tolzaState.output.appendLine(stdout);
+          tolzaState.output.appendLine(stderr);
           resolve(true);
         },
     );
@@ -221,13 +221,13 @@ export async function runAudit() {
           return;
         }
 
-        console.log(stdout);
-        console.log(stderr);
+        tolzaState.output.appendLine(stdout);
+        tolzaState.output.appendLine(stderr);
       });
 }
 
 export async function check_toml(uri: vscode.Uri) {
-  console.log('Selected .toml :', uri.fsPath);
+  tolzaState.output.appendLine(`Selected folder : ${uri.fsPath}`);
 
   const p = await new Promise<boolean>((resolve) => {
     execFile(
@@ -241,8 +241,8 @@ export async function check_toml(uri: vscode.Uri) {
             return;
           }
 
-          console.log(stdout);
-          console.log(stderr);
+          tolzaState.output.appendLine(stdout);
+          tolzaState.output.appendLine(stderr);
           resolve(true);
         },
     );

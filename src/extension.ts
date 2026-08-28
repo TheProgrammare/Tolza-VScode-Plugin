@@ -4,7 +4,7 @@ import {config_build, runBuild} from './build';
 import {scheduleCheck} from './build_check';
 import {config_completion, TolzaCompletionProvider} from './completion_items';
 import * as diagnostic from './diagnostics';
-import {config_tolza_config} from './state';
+import {config_tolza_config, tolzaState} from './state';
 import {config_workspace} from './workspace';
 
 
@@ -19,7 +19,7 @@ export async function activate(context: vscode.ExtensionContext) {
 
   config_workspace(context);
 
-  console.log('Extension Tolza activated');
+  tolzaState.output.appendLine('Extension Tolza activated');
 
   scheduleCheck(0);
 }

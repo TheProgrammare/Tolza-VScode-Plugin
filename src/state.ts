@@ -12,6 +12,8 @@ export const tolzaState = {
   checkRunning: false,
 
   generation: 0,
+
+  output: vscode.window.createOutputChannel('Tolza'),
 };
 
 export const tolzaParameters = {
@@ -29,7 +31,7 @@ export async function config_tolza_config(context: vscode.ExtensionContext) {
   utils.findTolzaConfig();
 
   if (!tolzaState.config) {
-    vscode.window.showErrorMessage('No tolza.toml found');
+    vscode.window.showErrorMessage('No manifest tolza.toml found');
     return;
   }
 

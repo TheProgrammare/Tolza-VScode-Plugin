@@ -1,19 +1,20 @@
-import path = require("path");
-import * as vscode from "vscode";
+import path = require('path');
+import * as vscode from 'vscode';
+import {tolzaState} from './state';
 
-export var diagnostics = vscode.languages.createDiagnosticCollection("tolza");
+export var diagnostics = vscode.languages.createDiagnosticCollection('tolza');
 
 export async function parseDiagnostics(output: string) {
-  const begin = "@@TOLZA_EXORDIUM_DIAGNOSTICORUM@@";
+  const begin = '@@TOLZA_EXORDIUM_DIAGNOSTICORUM@@';
 
-  const end = "@@TOLZA_CLAUSULA_DIAGNOSTICORUM@@";
+  const end = '@@TOLZA_CLAUSULA_DIAGNOSTICORUM@@';
 
   const start = output.indexOf(begin);
 
   const finish = output.indexOf(end);
 
   if (start === -1 || finish === -1 || finish < start) {
-    console.warn("Tolza: no diagnostic block found");
+    tolzaState.output.appendLine('Tolza: no diagnostic block found');
 
     diagnostics.clear();
 
@@ -27,7 +28,7 @@ export async function parseDiagnostics(output: string) {
   try {
     errors = JSON.parse(json);
   } catch {
-    console.error("Tolza: invalid diagnostic JSON:\n", json);
+    tolzaState.output.appendLine(`Tolza: invalid diagnostic JSON:\n ${json}`);
 
     return;
   }
@@ -48,7 +49,7 @@ export async function parseDiagnostics(output: string) {
     const uri = vscode.Uri.file(path.resolve(error.file));
 
     const document = vscode.workspace.textDocuments.find(
-      (d) => d.uri.fsPath === uri.fsPath,
+        (d) => d.uri.fsPath === uri.fsPath,
     );
 
     if (!document) {
@@ -56,14 +57,13 @@ export async function parseDiagnostics(output: string) {
     }
 
     const diagnostic = new vscode.Diagnostic(
-      new vscode.Range(
-        document.positionAt(error.start_pos),
-        document.positionAt(error.end_pos),
-      ),
-      formatMessage(error),
-      error.type === "warning"
-        ? vscode.DiagnosticSeverity.Warning
-        : vscode.DiagnosticSeverity.Error,
+        new vscode.Range(
+            document.positionAt(error.start_pos),
+            document.positionAt(error.end_pos),
+            ),
+        formatMessage(error),
+        error.type === 'warning' ? vscode.DiagnosticSeverity.Warning :
+                                   vscode.DiagnosticSeverity.Error,
     );
 
     const list = grouped.get(uri.fsPath) ?? [];
@@ -88,7 +88,7 @@ function formatMessage(error: any): string {
   }
 
   if (error.hint) {
-    message += `\nHint: ${error.hint}`;
+    message += `\n${error.hint}`;
   }
 
   return message;
