@@ -8,11 +8,16 @@
 ![License](https://img.shields.io/badge/License-Apache_2.0-darkblue)
 ![Platform](https://img.shields.io/badge/Current_Platform-VSCode_/_Codium-yellow)
 
-</div>
+**- ECOSYSTEM -**
+
+[![Plugin](https://img.shields.io/badge/Tolza_VScode_Plugin-Click_Here-darkgreen)](https://github.com/TheProgrammare/Tolza-VSCode-Plugin)
+[![Plugin](https://img.shields.io/badge/Tolza_Compiler_Toolchain-Click_Here-darkgreen)](https://github.com/TheProgrammare/Tolza)
 
 A complete Visual Studio Code extension that brings first-class support for the **Tolza** programming language.
 
-> For Tolza project, see [here](https://github.com/TheProgrammare/Tolza)
+</div>
+
+
 
 ## Features
 
@@ -38,6 +43,16 @@ Compile your Tolza projects directly from Visual Studio Code.
 
 The extension integrates the Tolza compiler into your workflow, allowing you to build your projects without leaving the editor.
 
+### Workspace operations
+
+Powered by the officiel Tolza toolchain:
+* workspace creator
+* manifest creator
+* profile creator
+* project audit
+* configuration checker
+* module synchronizer 
+
 ## Designed for Productivity
 
 The goal of this extension is to provide a native and intuitive development experience for the **Tolza** programming language within Visual Studio Code.
@@ -48,6 +63,7 @@ By combining syntax highlighting, syntax analysis, and integrated compilation, t
 
 * Complete syntax highlighting.
 * Built-in syntax analysis.
+* Built-in toolchain commands.
 * Integrated compilation.
 * Fast, ergonomic, and seamless workflow.
 * Native Visual Studio Code integration.
