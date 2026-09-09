@@ -1,0 +1,41 @@
+# Tolza VS Code Plugin — NOTICE
+
+Copyright © 2026 TheProgrammare
+
+The Tolza VS Code Plugin is distributed under the Apache License, Version 2.0.
+
+The source code of this project is licensed under the terms of the Apache License 2.0. A copy of the license is available in the `LICENSE` file at the root of this repository.
+
+## Project Identity
+
+This repository contains the official Visual Studio Code extension for the Tolza programming language and its toolchain.
+
+The name **Tolza**, the Tolza name and wordmark, logos, icons, and other visual elements associated with the Tolza project are part of the project's identity and are not granted under the Apache License 2.0, except where explicitly stated otherwise.
+
+The Apache License 2.0 does not grant permission to use the Tolza name, trademarks, product names, logos, icons, or other branding to imply endorsement, sponsorship, or official affiliation with the Tolza project or TheProgrammare.
+
+Forks and derivative projects of this extension are permitted under the terms of the Apache License 2.0. Such projects should use their own name and visual identity and should not represent themselves as the official Tolza VS Code Plugin.
+
+## Tolza Relationship
+
+This extension is an official component of the Tolza ecosystem maintained by TheProgrammare.
+
+The existence of this repository or the use of its source code does not grant permission to represent another extension, fork, distribution, or derivative project as an official Tolza product.
+
+## Third-Party Components
+
+This project may include or depend on third-party software, libraries, packages, Visual Studio Code APIs, or other components.
+
+Such components remain subject to their respective licenses, copyrights, and terms.
+
+Users and distributors are responsible for complying with the applicable licenses and notices of third-party components.
+
+## Icons and Visual Assets
+
+Visual assets included in this repository, including files located in the `icons/` directory, are part of the project's visual identity unless explicitly stated otherwise.
+
+The Apache License 2.0 applies to copyrightable source code covered by that license but does not, by itself, grant permission to use the Tolza branding or visual identity to imply official status or endorsement.
+
+## No Endorsement
+
+Unless explicitly stated otherwise, use of the Tolza name, logos, icons, or other branding does not imply endorsement, sponsorship, or affiliation with the Tolza project or TheProgrammare.
