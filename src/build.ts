@@ -1,7 +1,7 @@
 import {execFile} from 'child_process';
 import * as vscode from 'vscode';
 
-import {runBuild_Check, scheduleCheck} from './build_check';
+import {runBuild_Check} from './build_check';
 import {parseDiagnostics} from './diagnostics';
 import {run} from './run';
 import {tolzaParameters, tolzaState} from './state';
@@ -15,25 +15,19 @@ export async function config_build(context: vscode.ExtensionContext) {
       vscode.commands.registerCommand('tolza.build', runBuild),
   );
 
-  context.subscriptions.push(vscode.commands.registerCommand('tolza.run', run));
-
   context.subscriptions.push(
-      vscode.workspace.onDidChangeTextDocument(() => scheduleCheck(500)),
-  );
-
-  context.subscriptions.push(
-      vscode.workspace.onDidSaveTextDocument(() => scheduleCheck(0)),
+      vscode.commands.registerCommand('tolza.run', run),
   );
 }
 
 export async function runBuild() {
-  if (!tolzaState.config) {
+  if (!tolzaState.manifest) {
     vscode.window.showErrorMessage('No tolza.toml found');
 
     return false;
   }
 
-  let configFile = tolzaState.config.toString();
+  let configFile = tolzaState.manifest.toString();
 
   return new Promise<boolean>((resolve) => {
     execFile(

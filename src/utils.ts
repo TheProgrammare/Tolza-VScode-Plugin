@@ -1,10 +1,11 @@
-import * as vscode from "vscode";
-import * as fs from "fs";
-import path = require("path");
-import { tolzaState } from "./state";
-import { execFile } from "child_process";
-import { promisify } from "util";
-import which from "which";
+import * as fs from 'fs';
+import * as vscode from 'vscode';
+
+import path = require('path');
+import {tolzaState} from './state';
+import {execFile} from 'child_process';
+import {promisify} from 'util';
+import which from 'which';
 
 export function findTolzaConfig() {
   const workspace = vscode.workspace.workspaceFolders?.[0];
@@ -16,17 +17,17 @@ export function findTolzaConfig() {
   let current = workspace.uri.fsPath;
 
   while (true) {
-    const config = path.join(current, "tolza.toml");
+    const config = path.join(current, 'tolza.toml');
 
     if (fs.existsSync(config)) {
-      tolzaState.config = config;
+      tolzaState.manifest = config;
       return;
     }
 
     const parent = path.dirname(current);
 
     if (parent === current) {
-      tolzaState.config = undefined;
+      tolzaState.manifest = undefined;
       return;
     }
 
@@ -43,17 +44,17 @@ export interface BinCheckResult {
 }
 
 export async function check_bin(
-  input: string,
-  cwd?: string,
-): Promise<BinCheckResult> {
-  if (!input || input.trim() === "") {
+    input: string,
+    cwd?: string,
+    ): Promise<BinCheckResult> {
+  if (!input || input.trim() === '') {
     return {
       valid: false,
-      error: "No path specified",
+      error: 'No path specified',
     };
   }
 
-  let binPath: string | undefined;
+  let binPath: string|undefined;
 
   // direct path
   let candidate = input;
@@ -87,33 +88,33 @@ export async function check_bin(
       return {
         valid: false,
         path: binPath,
-        error: "The path dosen't point to a file",
+        error: 'The path dosen\'t point to a file',
       };
     }
   } catch {
     return {
       valid: false,
       path: binPath,
-      error: "Impossible to read the file",
+      error: 'Impossible to read the file',
     };
   }
 
   // check permissions
-  if (process.platform !== "win32") {
+  if (process.platform !== 'win32') {
     try {
       fs.accessSync(binPath, fs.constants.X_OK);
     } catch {
       return {
         valid: false,
         path: binPath,
-        error: "The file is not a binary",
+        error: 'The file is not a binary',
       };
     }
   }
 
   // check bin integrity
   try {
-    await execFileAsync(binPath, ["--version"], {
+    await execFileAsync(binPath, ['--version'], {
       timeout: 3000,
     });
   } catch (err: any) {
@@ -121,8 +122,7 @@ export async function check_bin(
       valid: false,
       path: binPath,
       error: `The binary dosen't respond --version : ${
-        err.message ?? "unknown error"
-      }`,
+          err.message ?? 'unknown error'}`,
     };
   }
 

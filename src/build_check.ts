@@ -1,60 +1,109 @@
 import {execFile} from 'child_process';
+import * as path from 'path';
 import * as vscode from 'vscode';
 
 import {parseDiagnostics} from './diagnostics';
+import {updateOverlay} from './overlay';
 import {tolzaParameters, tolzaState} from './state';
-
-let checkTimer: NodeJS.Timeout|undefined;
-
-let checkGeneration = 0;
 
 let checkRunning = false;
 let checkPending = false;
+let checkTimer: NodeJS.Timeout|undefined;
 
-export function scheduleCheck(delay: number) {
+export function scheduleCheck(delay = 200) {
   if (checkTimer) {
     clearTimeout(checkTimer);
   }
 
-  checkTimer = setTimeout(() => runBuild_Check(), delay);
+  checkTimer = setTimeout(() => {
+    checkTimer = undefined;
+    void runBuild_Check();
+  }, delay);
+}
+
+export function config_check(context: vscode.ExtensionContext) {
+  context.subscriptions.push(
+      vscode.workspace.onDidChangeTextDocument(event => {
+        const document = event.document;
+
+        if (document.uri.scheme !== 'file' ||
+            !document.uri.fsPath.startsWith(
+                tolzaState.workspaceRoot + path.sep,
+                )) {
+          return;
+        }
+
+        tolzaState.output.appendLine(
+            `[check] change: ${document.uri.fsPath}`,
+        );
+
+        scheduleCheck();
+      }),
+  );
 }
 
 export async function runBuild_Check() {
-  if (!tolzaState.config) {
+  if (!tolzaState.manifest) {
     return;
   }
 
+  // Un check est déjà en cours.
+  // On demande simplement d'en refaire un à la fin.
   if (checkRunning) {
     checkPending = true;
+
+    tolzaState.output.appendLine(
+        '[check] already running, pending=true',
+    );
 
     return;
   }
 
   checkRunning = true;
 
-  const generation = ++checkGeneration;
+  try {
+    tolzaState.output.appendLine('[check] starting');
 
-  execFile(
-      tolzaParameters.path_compiler,
-      [
-        'build', tolzaState.config, '--check', '--diagnostic-format', 'json',
-        '--error-mode', 'fail_recover', tolzaParameters.command_check_args
-      ],
-      async (_error, stdout, stderr) => {
-        if (generation !== checkGeneration) {
-          checkRunning = false;
+    await updateOverlay();
 
-          return;
-        }
+    await new Promise<void>(resolve => {
+      execFile(
+          tolzaParameters.path_compiler,
+          [
+            'build',
+            tolzaState.manifest!,
+            '--check',
+            '--diagnostic-format',
+            'json',
+            '--error-mode',
+            'fail_recover',
+            '--log-level',
+            'quiet',
+            '--overlay',
+            tolzaState.overlayRoot,
+            tolzaParameters.command_check_args,
+          ],
+          async (_error, stdout, stderr) => {
+            tolzaState.output.appendLine('[check] compiler finished');
+            tolzaState.output.appendLine(stderr);
+            tolzaState.output.appendLine(stdout);
+            await parseDiagnostics(stdout + stderr);
 
-        await parseDiagnostics(stdout + stderr);
+            resolve();
+          },
+      );
+    });
+  } finally {
+    checkRunning = false;
 
-        checkRunning = false;
+    if (checkPending) {
+      checkPending = false;
 
-        if (checkPending) {
-          checkPending = false;
+      tolzaState.output.appendLine(
+          '[check] running pending check',
+      );
 
-          runBuild_Check();
-        }
-      });
+      void runBuild_Check();
+    }
+  }
 }

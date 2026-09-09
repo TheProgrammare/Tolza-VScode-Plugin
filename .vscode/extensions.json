@@ -1,0 +1,10 @@
+{
+    "recommendations": [
+        "ms-vscode.vscode-typescript-next",
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "ms-vscode.extension-test-runner",
+        "eamodio.gitlens",
+        "usernamehw.errorlens"
+    ]
+}

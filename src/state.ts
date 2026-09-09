@@ -1,9 +1,20 @@
+import * as crypto from 'crypto';
+import * as os from 'os';
+import * as path from 'path';
 import * as vscode from 'vscode';
 
 import * as utils from './utils';
 
+const workspaceRoot = vscode.workspace.workspaceFolders?.[0]?.uri.fsPath;
+
+if (!workspaceRoot) {
+  throw new Error('No workspace folder open');
+}
+
+const workspaceId = getWorkspaceId(workspaceRoot);
+
 export const tolzaState = {
-  config: undefined as string | undefined,
+  manifest: undefined as string | undefined,
 
   executable: undefined as string | undefined,
 
@@ -14,7 +25,21 @@ export const tolzaState = {
   generation: 0,
 
   output: vscode.window.createOutputChannel('Tolza'),
+
+  workspaceRoot: workspaceRoot,
+  workspaceId: workspaceId,
+  overlayRoot: path.join(
+      os.tmpdir(),
+      'tolza',
+      workspaceId,
+      ),
 };
+
+function getWorkspaceId(workspaceRoot: string): string {
+  const normalized = path.resolve(workspaceRoot).replace(/\\g/, '/');
+
+  return crypto.createHash('sha256').update(normalized, 'utf8').digest('hex');
+}
 
 export const tolzaParameters = {
   path_toolchain: '' as string,
@@ -30,7 +55,7 @@ export const tolzaParameters = {
 export async function config_tolza_config(context: vscode.ExtensionContext) {
   utils.findTolzaConfig();
 
-  if (!tolzaState.config) {
+  if (!tolzaState.manifest) {
     vscode.window.showErrorMessage('No manifest tolza.toml found');
     return;
   }
@@ -44,11 +69,11 @@ export async function config_tolza_config(context: vscode.ExtensionContext) {
   );
   tolzaParameters.command_check_args = config.get<string>(
       'command_check_args',
-      '',
+      'tolza-compiler',
   );
   tolzaParameters.command_build_args = config.get<string>(
       'command_build_args',
-      '',
+      'tolza-compiler',
   );
 
   const toolchain_result = await utils.check_bin(

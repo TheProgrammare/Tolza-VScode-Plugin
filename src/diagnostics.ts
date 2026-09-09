@@ -1,23 +1,25 @@
 import path = require('path');
 import * as vscode from 'vscode';
+
 import {tolzaState} from './state';
+import {availableMemory} from 'process';
 
-export var diagnostics = vscode.languages.createDiagnosticCollection('tolza');
+export const diagnostics = vscode.languages.createDiagnosticCollection('tolza');
 
-export async function parseDiagnostics(output: string) {
+export function parseDiagnostics(output: string): void {
+  // Toujours supprimer les diagnostics du check précédent.
+  diagnostics.clear();
+
   const begin = '@@TOLZA_EXORDIUM_DIAGNOSTICORUM@@';
-
   const end = '@@TOLZA_CLAUSULA_DIAGNOSTICORUM@@';
 
   const start = output.indexOf(begin);
-
   const finish = output.indexOf(end);
 
   if (start === -1 || finish === -1 || finish < start) {
-    tolzaState.output.appendLine('Tolza: no diagnostic block found');
-
-    diagnostics.clear();
-
+    tolzaState.output.appendLine(
+        'Tolza: no diagnostic block found',
+    );
     return;
   }
 
@@ -28,16 +30,22 @@ export async function parseDiagnostics(output: string) {
   try {
     errors = JSON.parse(json);
   } catch {
-    tolzaState.output.appendLine(`Tolza: invalid diagnostic JSON:\n ${json}`);
-
+    tolzaState.output.appendLine(
+        `Tolza: invalid diagnostic JSON:\n${json}`,
+    );
     return;
   }
 
-  if (!Array.isArray(errors) || errors.length === 0) {
-    diagnostics.clear();
-
+  if (!Array.isArray(errors)) {
+    tolzaState.output.appendLine(
+        'Tolza: diagnostic JSON is not an array',
+    );
     return;
   }
+
+  tolzaState.output.appendLine(
+      `Tolza: ${errors.length} diagnostics received`,
+  );
 
   const grouped = new Map<string, vscode.Diagnostic[]>();
 
@@ -49,10 +57,13 @@ export async function parseDiagnostics(output: string) {
     const uri = vscode.Uri.file(path.resolve(error.file));
 
     const document = vscode.workspace.textDocuments.find(
-        (d) => d.uri.fsPath === uri.fsPath,
+        document => document.uri.fsPath === uri.fsPath,
     );
 
     if (!document) {
+      tolzaState.output.appendLine(
+          `Tolza: document not open: ${uri.fsPath}`,
+      );
       continue;
     }
 
@@ -69,11 +80,8 @@ export async function parseDiagnostics(output: string) {
     const list = grouped.get(uri.fsPath) ?? [];
 
     list.push(diagnostic);
-
     grouped.set(uri.fsPath, list);
   }
-
-  diagnostics.clear();
 
   for (const [file, list] of grouped) {
     diagnostics.set(vscode.Uri.file(file), list);

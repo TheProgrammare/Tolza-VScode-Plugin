@@ -205,7 +205,7 @@ export async function new_profile(uri: vscode.Uri) {
 }
 
 export async function runAudit() {
-  if (!tolzaState.config) {
+  if (!tolzaState.manifest) {
     return;
   }
 

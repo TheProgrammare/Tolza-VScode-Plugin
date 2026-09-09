@@ -1139,7 +1139,10 @@
           "include": "#literal_numeric"
         },
         {
-          "include": "#literal_string"
+          "include": "#literal_string_quote"
+        },
+        {
+          "include": "#literal_string_backtick"
         },
         {
           "name": "variable.language.wildcard.tolza",
@@ -1176,7 +1179,7 @@
         }
       ]
     },
-    "literal_string": {
+    "literal_string_quote": {
       "begin": "\"",
       "beginCaptures": {
         "0": {
@@ -1190,6 +1193,30 @@
         }
       },
       "name": "string.quoted.double.tolza",
+      "patterns": [
+        {
+          "name": "constant.character.escape.tolza",
+          "match": "\\\\(?:u\\{[0-9A-Fa-f]{1,6}\\}|u[0-9A-Fa-f]{4}|x[0-9A-Fa-f]{2}|0|[\"{}nrtbfv])"
+        },
+        {
+          "include": "#string_interpolation"
+        }
+      ]
+    },
+    "literal_string_backtick": {
+      "begin": "`",
+      "beginCaptures": {
+        "0": {
+          "name": "punctuation.definition.string.begin.tolza"
+        }
+      },
+      "end": "`(?:text|str|cstr|t|s|c)?",
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.definition.string.end.tolza"
+        }
+      },
+      "name": "string.quoted.backtick.tolza",
       "patterns": [
         {
           "name": "constant.character.escape.tolza",

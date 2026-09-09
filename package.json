@@ -162,12 +162,10 @@
           },
           "tolza.command_check_args": {
             "type": "string",
-            "default": "--diagnostic-format json",
             "description": "Arguments for the check command"
           },
           "tolza.command_build_args": {
             "type": "string",
-            "default": "--diagnostic-format json",
             "description": "Arguments for the build command"
           }
         }
