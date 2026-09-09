@@ -60,7 +60,7 @@ By combining syntax highlighting, syntax analysis, and integrated compilation, t
 
 Develop Tolza applications with confidence using an extension designed to make the language feel like a first-class citizen in Visual Studio Code.
 
-
+---
 
 # License
 
