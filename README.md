@@ -60,6 +60,19 @@ By combining syntax highlighting, syntax analysis, and integrated compilation, t
 
 Develop Tolza applications with confidence using an extension designed to make the language feel like a first-class citizen in Visual Studio Code.
 
+# Installation
+
+1. Clone this repository
+```bash
+git clone github@TheProgrammare-Tolza-VScode-Plugin.git
+```
+
+2. Open the project in VScode
+3. Launch VScode command with `>` or `LCtrl`+`LShift`+`P`
+4. Write `>Run Task`
+5. Select `Build Tolza VSIX`
+6. Install the `.vsix` located at the project root
+
 ---
 
 # License
