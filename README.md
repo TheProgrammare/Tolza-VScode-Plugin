@@ -103,6 +103,18 @@ This repository contains the official Visual Studio Code extension for the [Tolz
 
 Other projects using the Tolza source code are not necessarily affiliated with or endorsed by the official Tolza project.
 
+
+# Copyright
+
+Copyright © 2026 Foz Florian - Tolza VScode Plugin
+
+The Tolza VScode Plugin source code is licensed under the Apache License 2.0.
+
+Source: https://github.com/TheProgrammare/Tolza-VScode-Plugin
+
+The **Tolza name, logo, wordmark and associated branding are separate from the source-code license and are reserved**.
+
+
 ## Third-Party Components
 
 This extension may use third-party libraries, packages, APIs, or other software components.
