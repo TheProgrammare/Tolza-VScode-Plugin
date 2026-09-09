@@ -59,3 +59,51 @@ By combining syntax highlighting, syntax analysis, and integrated compilation, t
 
 
 Develop Tolza applications with confidence using an extension designed to make the language feel like a first-class citizen in Visual Studio Code.
+
+
+
+# License
+
+The source code of the Tolza VS Code Plugin is licensed under the **Apache License, Version 2.0**.
+
+You may use, modify, reproduce, distribute, and create derivative works from the source code, including for commercial purposes, subject to the terms and conditions of the Apache License 2.0.
+
+See the [`LICENSE`](LICENSE) file for the complete license text.
+
+Additional information concerning the project identity, branding, and third-party components is available in the [`NOTICE`](NOTICE) file.
+
+## Trademark and Brand
+
+**Tolza** is the name of the programming language and its associated ecosystem.
+
+The Tolza name, wordmark, logos, icons, and other elements of the Tolza visual identity are separate from the source code license.
+
+The Apache License 2.0 does **not** grant permission to use the Tolza name, logos, or other branding in a way that suggests that a fork, derivative project, extension, distribution, or service is officially maintained, endorsed, or sponsored by the Tolza project or TheProgrammare.
+
+Forks and derivative works are permitted under the Apache License 2.0. However, they should use a distinct name and visual identity and should not present themselves as the official Tolza VS Code Plugin.
+
+See [`NOTICE`](NOTICE) for additional information.
+
+## Official Tolza Project
+
+This repository contains the official Visual Studio Code extension for the [Tolza programming language](https://github.com/TheProgrammare/Tolza).
+
+Other projects using the Tolza source code are not necessarily affiliated with or endorsed by the official Tolza project.
+
+## Third-Party Components
+
+This extension may use third-party libraries, packages, APIs, or other software components.
+
+Third-party components remain subject to their respective licenses and copyright notices.
+
+Users and distributors are responsible for complying with the applicable licenses and terms of those components.
+
+## Disclaimer
+
+The Tolza VS Code Plugin is part of an actively developed and experimental programming language ecosystem.
+
+Features, syntax support, tooling, diagnostics, language-server behavior, and other aspects of the extension may change as Tolza evolves.
+
+
+The software is provided on an **"AS IS"** basis, without warranties of any kind, to the extent permitted by applicable law.
+
